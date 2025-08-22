@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <button
+      onclick="
+      playGame('heads');
+    "
+   >
+      heads
+    </button>
+
+    <button
+      onclick="
+      playGame('tails');
+    "
+    >
+      tails
+    </button>
+
+    <script>
+      const score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+      function playGame(guess) {
+        const randomNumber = Math.random();
+        const result = randomNumber < 0.5 ? "heads" : "tails";
+        console.log(guess === result ? "You win!" : "You lose!");
+        if (guess === result) {
+          score.wins++;
+        } else {
+          score.losses++;
+        }
+        console.log(score);
+
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+
+      const product1 = {
+        name: "basketball",
+        price: 2095,
+      };
+      const product2 = {
+        name: "basketball",
+        price: 1090,
+      };
+      const product3 = {
+        name: "basketball",
+        price: 2095,
+      };
+
+      function comparePrice(product1, product2) {
+        if (product1.price > product2.price) return product1;
+        else {
+          return product2;
+        }
+      }
+      console.log(comparePrice(product1, product2));
+
+      function isSameProduct(product1, product2) {
+        if (
+          product1.name === product2.name &&
+          product1.price === product2.price
+        )
+          return true;
+        else {
+          return false;
+        }
+      }
+      console.log(isSameProduct(product1, product2));
+      console.log(isSameProduct(product1, product3));
+
+      console.log("GOOD MORNING".toLowerCase());
+      console.log("word".repeat(2));
+
+      /* const product = {
+        name: 'socks' ,  
+        price: '1090 '
+    };
+    console.log( product)
+    console.log(product.name)
+    console.log(product.price)
+    
+    product.name = 'cotton socks';
+    console.log(product)
+
+    product.newProperty = true;
+     console.log(product)
+
+     delete product.newProperty
+      console.log(product) */
+
+      /*const product2 = {
+        name:'shirt',
+        'delivery-time' : '1 day' ,
+        rating: {
+            stars: 4.5, 
+            count :87 
+        },
+        fun : function function1 ( ) {
+            console.log('function inside object')
+            
+        }
+      }
+      console.log(product2)
+      console.log(product2.name)
+      console.log(product2['name'])
+      console.log(product2['delivery-time'])
+      console.log(product2.rating.count)
+        
+      product2.fun()
+     console.log(JSON.stringify(product2))
+      const jsonString = JSON.stringify(product2)
+        console.log (JSON.parse(jsonString)) 
+        console.log('hello'.length)
+        console.log('hello'.toUpperCase())
+
+        const object1 ={
+            message: 'hello'
+        }
+        const object2 = object1;
+        object1.message = 'Good job'
+        console.log(object1)
+
+    const object4 = {
+         message: 'Good Job!',
+         price : 799
+    }
+    const { message, price } = object4;
+    console.log(message)
+    console.log(price)*/
+
+      // exercises
+      //   8a, 8b, 8c,8d
+
+      //   console.log(product);
+      //   product.price += 500;
+      //   console.log(product);
+      //   product["delivery-time"] = "3 days";
+      //   console.log(product);
+    </script>
+  </body>
+</html>
